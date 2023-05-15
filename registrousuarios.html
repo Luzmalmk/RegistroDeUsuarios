@@ -1,0 +1,78 @@
+<html>
+<meta charset="utf-8">
+	<head>
+		<br>
+		<title>Registo de Usuarios</title><meta charset="utf-8">	
+	</head>
+	<body>
+		<form action="index.js" method="" id="formulario">
+			<table align="center">
+				<tr>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div align="center">
+							<h1>Registo de Usuarios</h1>
+							<br>
+						</div>
+						<div align="center">
+							<label for="lblNombre">Nombre(s): </label>
+							<input type="text" id="txtNombre" name="txtNombre" value="Luz" onKeyPress="return soloLetras(event);" size=25>
+							<br><br>
+						</div>
+						<div align="center">
+							<label for="lblAppaterno">Apellido Paterno: </label>
+							<input type="text" id="txtApellidoPaterno" name="txtApellidoPaterno" value="cruz" onKeyPress="return soloLetras(event);" size=18>
+							<br><br>
+						</div>
+						<div align="center">
+							<label for="lblApmaterno">Apellido Materno: </label>
+							<input type="text" id="txtApellidoMaterno" name="txtApellidoMaterno" value="aguirre"  onKeyPress="return soloLetras(event);" size=18>
+							<br><br>
+						</div>
+						<div>
+							<label for="lblGenero"> Genero: </label>
+							<select name="Genero" id="Genero" value ="M">
+								<option value="M">Masculino</option>
+								<option value="F">Femenino</option>
+							</select>
+							<br>
+							<br>	
+						</div>
+						<div align="center">
+							<label for="lblTelefono"> Telefono: </label>	
+							<input type="text" id="txtTelefono" name="txtTelefono" value="6681832800"  maxlength="15" onkeypress="javascript:return solonumeros(event)" size=25>
+							<br><br>
+						</div>
+						<div align="center">
+							<label for="lblCorreo"> Correo: </label>
+							<input type="text" id="txtCorreo" name="txtCorreo" value="cruz@gmail.com" size=25>
+							<br><br>
+						</div>
+						<div align="center">				
+							<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar"/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script  src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+		<script>
+			const firebaseConfig = {
+				apiKey: "AIzaSyCiX6SWpBbUqF0qCKWF1W8cx-Vqmt0Lzo8",
+				authDomain: "formulario-de-registro-4cd9b.firebaseapp.com",
+				projectId: "formulario-de-registro-4cd9b",
+				storageBucket: "formulario-de-registro-4cd9b.appspot.com",
+				messagingSenderId: "641462347289",
+				appId: "1:641462347289:web:b3243d390f56dc4fa12c88"
+			};
+			
+			firebase.initializeApp(firebaseConfig);
+		</script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
