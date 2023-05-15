@@ -7,61 +7,50 @@
 	</head>
 	<body>
 		<form action="index.js" method="" id="formulario">
-			<table align="center">
-				<tr>
-					<td>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div align="center">
-							<h1>Registo de Usuarios</h1>
-							<br>
-						</div>
-						<div align="center">
-							<label for="lblNombre">Nombre(s): </label>
-							<input type="text" id="txtNombre" name="txtNombre" value="Luz" onKeyPress="return soloLetras(event);" size=25>
-							<br><br>
-						</div>
-						<div align="center">
-							<label for="lblAppaterno">Apellido Paterno: </label>
-							<input type="text" id="txtApellidoPaterno" name="txtApellidoPaterno" value="cruz" onKeyPress="return soloLetras(event);" size=18>
-							<br><br>
-						</div>
-						<div align="center">
-							<label for="lblApmaterno">Apellido Materno: </label>
-							<input type="text" id="txtApellidoMaterno" name="txtApellidoMaterno" value="aguirre"  onKeyPress="return soloLetras(event);" size=18>
-							<br><br>
-						</div>
-						<div>
-							<label for="lblGenero"> Genero: </label>
-							<select name="Genero" id="Genero" value ="M">
-								<option value="M">Masculino</option>
-								<option value="F">Femenino</option>
-							</select>
-							<br>
-							<br>	
-						</div>
-						<div align="center">
-							<label for="lblTelefono"> Telefono: </label>	
-							<input type="text" id="txtTelefono" name="txtTelefono" value="6681832800"  maxlength="15" onkeypress="javascript:return solonumeros(event)" size=25>
-							<br><br>
-						</div>
-						<div align="center">
-							<label for="lblCorreo"> Correo: </label>
-							<input type="text" id="txtCorreo" name="txtCorreo" value="cruz@gmail.com" size=25>
-							<br><br>
-						</div>
-						<div align="center">				
-							<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar"/>
-						</div>
-						<div id="mensaje">
-						
-						</div>
-					</td>
-				</tr>
-			</table>
-		</form>
+				<div>
+					<h1>Registo de Usuarios</h1>
+					<br>
+				</div>
+				<div>
+					<label for="lblNombre">Nombre(s): </label>
+					<input type="text" id="txtNombre" name="txtNombre" onKeyPress="return soloLetras(event);" size=25>
+					<br><br>
+				</div>
+				<div>
+					<label for="lblAppaterno">Apellido Paterno: </label>
+					<input type="text" id="txtApellidoPaterno" name="txtApellidoPaterno" onKeyPress="return soloLetras(event);" size=18>
+					<br><br>
+				</div>
+				<div>
+					<label for="lblApmaterno">Apellido Materno: </label>
+					<input type="text" id="txtApellidoMaterno" name="txtApellidoMaterno" onKeyPress="return soloLetras(event);" size=18>
+					<br><br>
+				</div>
+				<div>
+					<label for="lblGenero"> Genero: </label>
+					<select name="Genero" id="Genero" value ="M">
+							<option value="M">Masculino</option>
+							<option value="F">Femenino</option>
+					</select>
+					<br><br>
+				</div>
+				<div>
+					<label for="lblTelefono"> Telefono: </label>	
+					<input type="text" id="txtTelefono" name="txtTelefono" onkeypress="javascript:return solonumeros(event)" size=25>
+					<br><br>
+				</div>
+				<div>
+					<label for="lblCorreo"> Correo: </label>
+					<input type="text" id="txtCorreo" name="txtCorreo" size=25>
+					<br><br>
+				</div>
+				<div>				
+					<input type="button" name="btnGuardar" id="btnGuardar" value="Guardar"/>
+				</div>
+				<div id="mensaje" class="popup">
+					
+				</div>
+			</form>
 		<script  src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>

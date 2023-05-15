@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100&display=swap');
+
+
+body {background-color: #f5f5f5;}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+form {
+    padding: 15px; background-color: white;
+    margin: 0 auto;
+    width: 30%;
+    box-shadow:'0 0 0 1px #32325d0d, 0 2px 5px 0 #32325d1a, 0 1px 1px 0 #00000012';
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-align: start;
+    
+}
+
+input {
+    overflow: visible;
+    border: none;
+    background: #efefef;
+    padding: 5px;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: gray;
+    width: 100%;
+    /* font-style: italic; */
+    font-family: 'Roboto', sans-serif;
+}
+
+select {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    background: #efefef;
+}
+
+#btnGuardar {
+    width: 100%;
+    padding: 5px;
+    background-color: #446df1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.btnGuardar:hover {background-color: #5c80f8}
+
+.btnGuardar:active {
+  background-color: #3a5dd1;
+  box-shadow: 0 5px #3753b0;
+  transform: translateY(4px);
+}
+
+#mensaje {
+    position: relative;
+    bottom: 500px;
+    left: 360px;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+    width: 90%;
+}
+
+.error {
+    background: #ffcfcf;
+    color: red;
+}
+.success {
+    background: #b1ff9e;
+    color: rgb(54 135 32);
+}

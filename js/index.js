@@ -9,6 +9,7 @@ var iCorreoValido = 0;
 
 $(document).ready(function()
 {
+	$('#mensaje').hide();
 	$("#btnGuardar").click( async () =>
 	{
 		try
@@ -22,23 +23,32 @@ $(document).ready(function()
 
 			if((sNombre.length == 0 || sNombre == '') || (sApellidoPat.length == 0 || sApellidoPat == '') || (sApellidoMat.length == 0 || sApellidoMat == '') || sCorreo.length == 0 || sCorreo == '')
 			{
-				alert("Favor de llenar todos los campos");	
+				$('#mensaje').removeClass('success');
+				$('#mensaje').addClass('error');
+				$('#mensaje').html("Favor de llenar los campos");
+				$('#mensaje').show();
 			}
-			console.log(sNombre, sApellidoPat, sApellidoMat, sGenero, sTelefono, sCorreo);
-			const response = await db.collection("users").doc().set({
-				name:sNombre,
-				firstlastname:sApellidoPat,
-				secondlastname:sApellidoMat,
-				genero:sGenero,
-				phone:sTelefono,
-				email:sCorreo
-			});
-			console.log(response);						
+			else {
+				const response = await db.collection("users").doc().set({
+					name:sNombre,
+					firstlastname:sApellidoPat,
+					secondlastname:sApellidoMat,
+					genero:sGenero,
+					phone:sTelefono,
+					email:sCorreo
+				});
+				console.log(response);
+	
+				$('#mensaje').removeClass("error");
+				$('#mensaje').addClass("success");
+				$('#mensaje').html("Registro Guardado con Exito");
+				$('#mensaje').show();
+				limpiar();	
+			}						
 		}catch(e)
 		{
-			console.log(e.response);
+			console.log(e);
 		}
-		
 	});
 	
 	$("#txtCorreo").change(function(evento)
@@ -69,75 +79,94 @@ $(document).ready(function()
 											else
 											{
 												iCorreoValido = 0;
-												console.log("Correo Invalido debido a que Contiene un Dominio invalido");
-												alert("Favor de verificar la estructura del correo");
+												//console.log("Correo Invalido debido a que Contiene un Dominio invalido");
+												$('#mensaje').show();
+												$('#mensaje').html("Favor de verificar la estructura del correo");
 											}
 										}
 										else
 										{
 											iCorreoValido = 0;
-											console.log("Correo Invalido debido a que Contiene un Dominio invalido");
-											alert("Favor de verificar la estructura del correo");
+											//console.log("Correo Invalido debido a que Contiene un Dominio invalido");
+											$('#mensaje').show();
+											$('#mensaje').html("Favor de verificar la estructura del correo");
 										}
 									}
 									else
 									{
 										iCorreoValido = 0;
-										console.log("Validando arroba y punto seguido");
-										alert("Favor de verificar la estructura del correo");
+										//console.log("Validando arroba y punto seguido");
+										$('#mensaje').show();
+										$('#mensaje').html("Favor de verificar la estructura del correo");
 									}
 								}
 								else
 								{
 									iCorreoValido = 0;
-									console.log("El correo no debe de tener mas de un arroba");
-									alert("Favor de verificar la estructura del correo");
+									//console.log("El correo no debe de tener mas de un arroba");
+									$('#mensaje').show();
+									$('#mensaje').html("Favor de verificar la estructura del correo");
 								}						
 							}
 							else
 							{
 								iCorreoValido = 0;
-								console.log("El correo no debe de tener dos puntos seguidos");
-								alert("Favor de verificar la estructura del correo");
+								//console.log("El correo no debe de tener dos puntos seguidos");
+								$('#mensaje').show();
+								$('#mensaje').html("Favor de verificar la estructura del correo");
 							}												
 						}
 						else
 						{
 							iCorreoValido = 0;
-							console.log("Se debe terner un arroba y un punto");
-							alert("Favor de verificar la estructura del correo");
+							//console.log("Se debe terner un arroba y un punto");
+							$('#mensaje').show();
+							$('#mensaje').html("Favor de verificar la estructura del correo");;
 						}													
 					}
 					else
 					{
 						iCorreoValido = 0;
-						console.log("No debe de terminar con ese caracter");
-						alert("Favor de verificar la estructura del correo");
+						//console.log("No debe de terminar con ese caracter");
+						$('#mensaje').show();
+						$('#mensaje').html("Favor de verificar la estructura del correo");
 					}												
 				}	
 				else
 				{
 					iCorreoValido = 0;
-					console.log("No debe de empezar con ese caracter");
-					alert("Favor de verificar la estructura del correo");
+					//console.log("No debe de empezar con ese caracter");
+					$('#mensaje').show();
+					$('#mensaje').html("Favor de verificar la estructura del correo");
 				}					
 			}
 			else
 			{
 				iCorreoValido = 0;
-				console.log("Tiene caracteres Invalidos");
-				alert("Favor de verificar la estructura del correo");
+				//console.log("Tiene caracteres Invalidos");
+				$('#mensaje').show();
+				$('#mensaje').html("Favor de verificar la estructura del correo");
 			}								
 		}
 		else
 		{
 			iCorreoValido = 0;
-			console.log("El correo esta vacio");
-			alert("Favor de verificar la estructura del correo");
+			//console.log("El correo esta vacio");
+			$('#mensaje').show();
+			$('#mensaje').html("Favor de verificar la estructura del correo");
 		}
 	});	
 	//validarTelefono();
 });
+
+function limpiar()
+{	
+	$("#txtNombre").val('');
+	$("#txtApellidoPaterno").val('');
+	$("#txtApellidoPaterno").val('');
+	$("#txtTelefono").val('');
+	$("#txtCorreo").val('');
+}
 
 function soloLetras(e) {
     key = e.keyCode || e.which;
