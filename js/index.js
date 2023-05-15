@@ -9,6 +9,7 @@ var iCorreoValido = 0;
 
 $(document).ready(function()
 {
+	limpiar();
 	$('#mensaje').hide();
 	$("#btnGuardar").click( async () =>
 	{
@@ -29,21 +30,24 @@ $(document).ready(function()
 				$('#mensaje').show();
 			}
 			else {
-				const response = await db.collection("users").doc().set({
-					name:sNombre,
-					firstlastname:sApellidoPat,
-					secondlastname:sApellidoMat,
-					genero:sGenero,
-					phone:sTelefono,
-					email:sCorreo
-				});
-				console.log(response);
+				if(iCorreoValido == 1)
+				{
+					const response = await db.collection("users").doc().set({
+						name:sNombre,
+						firstlastname:sApellidoPat,
+						secondlastname:sApellidoMat,
+						genero:sGenero,
+						phone:sTelefono,
+						email:sCorreo
+					});
+					console.log(response);
 	
-				$('#mensaje').removeClass("error");
-				$('#mensaje').addClass("success");
-				$('#mensaje').html("Registro Guardado con Exito");
-				$('#mensaje').show();
-				limpiar();	
+					$('#mensaje').removeClass("error");
+					$('#mensaje').addClass("success");
+					$('#mensaje').html("Registro Guardado con Exito");
+					$('#mensaje').show();
+					limpiar();
+				}	
 			}						
 		}catch(e)
 		{
@@ -75,6 +79,7 @@ $(document).ready(function()
 											if(ValidarDominioUsados(sCorreo))
 											{
 												iCorreoValido = 1;
+												//$("#btnGuardar").attr("disabled", false);
 											}
 											else
 											{
@@ -163,9 +168,10 @@ function limpiar()
 {	
 	$("#txtNombre").val('');
 	$("#txtApellidoPaterno").val('');
-	$("#txtApellidoPaterno").val('');
+	$("#txtApellidoMaterno").val('');
 	$("#txtTelefono").val('');
 	$("#txtCorreo").val('');
+	//$("#btnGuardar").attr("disabled", true);
 }
 
 function soloLetras(e) {
